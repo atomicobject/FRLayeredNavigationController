@@ -1,7 +1,7 @@
 /*
  * This file is part of FRLayeredNavigationController.
  *
- * Copyright (c) 2012, 2013, Johannes Weiß <weiss@tux4u.de>
+ * Copyright (c) 2012-2014, Johannes Weiß <weiss@tux4u.de>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,8 +26,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* Standard Library */
 #import <UIKit/UIKit.h>
 
+/* Local Imports */
 #import "Utils.h"
 
 @class FRLayeredNavigationItem;
@@ -84,18 +86,7 @@ typedef enum {
  *
  * The API and the usage is very similar to UINavigationController .
  */
-@interface FRLayeredNavigationController : UIViewController<UIGestureRecognizerDelegate> {
-    @private
-    UIView * __weak _firstTouchedView;
-    UIViewController * __weak _firstTouchedController;
-    UIPanGestureRecognizer *_panGR;
-    NSMutableArray *_layeredViewControllers;
-    UIViewController * __weak _outOfBoundsViewController;
-    UIView * __weak _dropNotificationView;
-    id<FRLayeredNavigationControllerDelegate> __weak _delegate;
-    BOOL _userInteractionEnabled;
-    BOOL _dropLayersWhenPulledRight;
-}
+@interface FRLayeredNavigationController : UIViewController<UIGestureRecognizerDelegate>
 
 /**
  * Initializes and returns a newly created layered navigation controller.

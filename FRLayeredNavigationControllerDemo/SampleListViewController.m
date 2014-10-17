@@ -1,7 +1,7 @@
 /*
  * This file is part of FRLayeredNavigationController.
  *
- * Copyright (c) 2012, 2013, Johannes Weiß <weiss@tux4u.de>
+ * Copyright (c) 2012-2014, Johannes Weiß <weiss@tux4u.de>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,8 +26,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "SampleListViewController.h"
+#import <UIKit/UIKit.h>
+
 #import "SampleContentViewController.h"
+#import "SampleListViewController.h"
 
 #import "FRLayeredNavigation.h"
 
@@ -69,7 +71,7 @@
     NSLog(@"hooray");
 }
 
-- (void)viewWillAppear:(__unused BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     self.layeredNavigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                                     initWithImage:[UIImage imageNamed:@"back.png"]
@@ -83,6 +85,8 @@
                                                      target:self
                                                      action:@selector(hooray)];
     self.layeredNavigationItem.rightBarButtonItem.style = UIBarButtonItemStyleBordered;
+
+    [super viewWillAppear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(__unused UIInterfaceOrientation)interfaceOrientation

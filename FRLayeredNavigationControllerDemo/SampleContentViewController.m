@@ -1,7 +1,7 @@
 /*
  * This file is part of FRLayeredNavigationController.
  *
- * Copyright (c) 2012, 2013, Johannes Weiß <weiss@tux4u.de>
+ * Copyright (c) 2012-2014, Johannes Weiß <weiss@tux4u.de>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -85,7 +85,7 @@
     _scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
 }
 
-- (void)viewWillAppear:(__unused BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     self.layeredNavigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                                     initWithImage:[UIImage imageNamed:@"back.png"]
@@ -99,6 +99,8 @@
                                                      target:self
                                                      action:@selector(hooray)];
     self.layeredNavigationItem.rightBarButtonItem.style = UIBarButtonItemStyleBordered;
+
+    [super viewWillAppear:animated];
 }
 
 - (void)didMoveToParentViewController:(UIViewController *)parent {
